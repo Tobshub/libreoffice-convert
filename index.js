@@ -49,6 +49,7 @@ const convertWithOptions = async (source, format, filter, options = {}) => {
   const filterParam = filter?.length ? `:${filter}` : "";
   const fmt = !(filter ?? "").includes(" ") ? `${format}${filterParam}` : `"${format}${filterParam}"`;
   const args = [];
+  args.push(`-env:UserInstallation=file:///tmp/${Math.random() * 1_000_000}`);
   args.push('--headless');
   args.push('--convert-to');
   args.push(fmt);

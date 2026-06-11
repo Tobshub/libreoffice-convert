@@ -7,9 +7,9 @@ var _jest = require('jest'),
 
 describe('convert', () => {
 
-  it('should convert a word document to text', async () => {
-    const source = _path.join(__dirname, '/resources/doc.pptx');
-    const fileName = _path.join(__dirname, '/resources/doc.pdf');
+  it('should convert a word document to pdf', async () => {
+    const source = _path.join(__dirname, '/resources/hello.docx');
+    const fileName = _path.join(__dirname, '/resources/hello.pdf');
     const res = await convertWithOptions(source, 'pdf', undefined, { fileName });
     expect(res).toMatch(fileName);
     expect(_fs.existsSync(res)).toBe(true);
